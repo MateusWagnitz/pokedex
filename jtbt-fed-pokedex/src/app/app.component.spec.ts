@@ -1,11 +1,18 @@
 import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { RouterTestingModule } from '@angular/router/testing';
+import { Component } from '@angular/core';
+
+@Component({
+  selector: 'router-outlet',
+  template: ''
+})
+class RouterOutletStubComponent {}
 
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [AppComponent, RouterTestingModule],
+      declarations: [RouterOutletStubComponent],
+      imports: [AppComponent],
     }).compileComponents();
   });
 

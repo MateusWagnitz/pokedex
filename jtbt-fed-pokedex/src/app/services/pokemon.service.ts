@@ -18,6 +18,7 @@ interface PokemonDetailResponse {
   name: string;
   types: { type: { name: string } }[];
   moves: { move: { name: string } }[];
+  sprites: { front_default: string }
 }
 
 @Injectable({
@@ -52,16 +53,17 @@ export class PokemonService {
         if (response.ok) {
           return response.json();
         } else {
-          return of({ id, name: `Error ${response.status}`, types: [], moves: [] });
+          return of({ id, name: `Error ${response.status}`, types: [], moves: [], imageUrl: '' });
         }
       }),
       map((data: PokemonDetailResponse) => ({
         id: data.id,
         name: this.capitalizeFirstLetter(data.name),
         types: data.types.map(typeInfo => typeInfo.type.name),
-        moves: data.moves.slice(0, 2).map(moveInfo => moveInfo.move.name)
+        moves: data.moves.slice(0, 2).map(moveInfo => moveInfo.move.name),
+        imageUrl: data.sprites.front_default
       })),
-      catchError(() => of({ id, name: 'Error', types: [], moves: [] }))
+      catchError(() => of({ id, name: 'Error', types: [], moves: [], imageUrl: '' }))
     );
   }
 

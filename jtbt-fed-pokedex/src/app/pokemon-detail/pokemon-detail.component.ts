@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { PokemonService } from '../services/pokemon.service';
 import { PokemonDetail } from '../models/pokemon-detail.model';
@@ -17,7 +17,8 @@ export class PokemonDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private pokemonService: PokemonService
+    private pokemonService: PokemonService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -28,4 +29,13 @@ export class PokemonDetailComponent implements OnInit {
       });
     }
   }
+
+  getTypeClass(): string {
+    return this.pokemonDetail ? this.pokemonDetail.types[0] : '';
+  }
+
+  goBack() {
+    this.router.navigate(['/']);
+  }
+
 }

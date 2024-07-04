@@ -1,5 +1,9 @@
-<div *ngIf="pokemonDetail">
-  <h1>{{ pokemonDetail.name }}</h1>
-  <p><strong>Types:</strong> {{ pokemonDetail.types.join(', ') }}</p>
-  <p><strong>Moves:</strong> {{ pokemonDetail.moves.join(', ') }}</p>
+<div *ngIf="pokemonDetail" class="pokemon-detail-container">
+  <button class="back-button" (click)="goBack()"> ← </button>
+  <div class="pokemon-detail-card" [ngClass]="getTypeClass()">
+    <img [src]="pokemonDetail.imageUrl" alt="{{ pokemonDetail.name }}" class="pokemon-image">
+    <h1>{{ pokemonDetail.name }}</h1>
+    <p><strong>Types:</strong> {{ pokemonDetail.types.join(', ') }}</p>
+    <p><strong>Moves:</strong> {{ pokemonDetail.moves.join(', ') }}</p>
+  </div>
 </div>

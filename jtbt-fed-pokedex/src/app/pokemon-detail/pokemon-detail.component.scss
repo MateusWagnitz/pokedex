@@ -1,14 +1,132 @@
-:host {
-  display: block;
+.pokemon-detail-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #bd57a3;
+  color: white;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+  transition: background-color 0.3s;
+  padding: 0;
+}
+
+.back-button:hover {
+  background-color: #bd57a3b4;
+}
+
+.pokemon-detail-card {
+  background-color: #1e1e1e;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 20px;
   text-align: center;
-  margin: 20px;
-  color: #fff;
+  color: #000000;
+  max-width: 300px;
+  width: 100%;
+  box-sizing: border-box;
 }
 
-h1 {
-  font-size: 2em;
+.pokemon-detail-card h1 {
+  color: #000000;
 }
 
-p {
-  font-size: 1.2em;
+.pokemon-detail-card img {
+  max-width: 100%;
+  height: auto;
+  margin-bottom: 10px;
+}
+
+.pokemon-detail-card.water {
+  background-color: #6890F0;
+}
+
+.pokemon-detail-card.fire {
+  background-color: #F08030;
+}
+
+.pokemon-detail-card.grass {
+  background-color: #78C850;
+}
+
+.pokemon-detail-card.electric {
+  background-color: #F8D030;
+}
+
+.pokemon-detail-card.ice {
+  background-color: #98D8D8;
+}
+
+.pokemon-detail-card.fighting {
+  background-color: #C03028;
+}
+
+.pokemon-detail-card.poison {
+  background-color: #A040A0;
+}
+
+.pokemon-detail-card.ground {
+  background-color: #E0C068;
+}
+
+.pokemon-detail-card.flying {
+  background-color: #A890F0;
+}
+
+.pokemon-detail-card.psychic {
+  background-color: #F85888;
+}
+
+.pokemon-detail-card.bug {
+  background-color: #A8B820;
+}
+
+.pokemon-detail-card.rock {
+  background-color: #B8A038;
+}
+
+.pokemon-detail-card.ghost {
+  background-color: #705898;
+}
+
+.pokemon-detail-card.dragon {
+  background-color: #7038F8;
+}
+
+.pokemon-detail-card.dark {
+  background-color: #705848;
+}
+
+.pokemon-detail-card.steel {
+  background-color: #B8B8D0;
+}
+
+.pokemon-detail-card.fairy {
+  background-color: #EE99AC;
+}
+
+.pokemon-detail-card.normal {
+  background-color: #A8A878;
+}
+
+.pokemon-detail-card.shadow {
+  background-color: #705898;
+}
+
+.pokemon-detail-card.unknown {
+  background-color: #68A090;
 }

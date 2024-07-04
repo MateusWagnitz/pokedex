@@ -45,7 +45,8 @@ describe('PokemonDetailComponent', () => {
       id: 1,
       name: 'Bulbasaur',
       types: ['grass', 'poison'],
-      moves: ['tackle', 'vine whip']
+      moves: ['tackle', 'vine whip'],
+      imageUrl: ''
     };
 
     mockActivatedRoute.snapshot.paramMap.get.mockReturnValue('1');
