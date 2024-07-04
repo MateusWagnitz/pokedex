@@ -1,0 +1,28 @@
+<div class="app-container">
+
+  <h1>Pokedex</h1>
+  <div class="search-container">
+    <input
+      class="search-input"
+      type="text"
+      placeholder="Buscar Pokémon..."
+      [(ngModel)]="searchQuery"
+      (input)="searchPokemons()"
+      (keyup.enter)="onEnter()"
+    />
+    <div *ngIf="searchQuery.length >= 3" class="tooltip">
+        <ul>
+          <li *ngFor="let pokemon of filteredPokemons" (click)="goToDetail(pokemon.id)">{{ pokemon.name }}</li>
+        </ul>
+    </div>
+  </div>
+
+  <div class="pokemon-cards">
+    <ng-container *ngFor="let pokemon of pokemons; trackBy: trackByFn">
+      <app-pokemon-card [pokemon]="pokemon"></app-pokemon-card>
+    </ng-container>
+  </div>
+  <ng-container *ngIf="currentBatch < maxBatches">
+    <button class="load-more" (click)="loadMorePokemons()">+</button>
+  </ng-container>
+</div>

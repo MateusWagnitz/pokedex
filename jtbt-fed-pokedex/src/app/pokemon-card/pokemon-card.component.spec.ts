@@ -65,7 +65,7 @@ describe('PokemonCardComponent', () => {
     expect(cardElement.classList).toContain('grass');
   });
 
-  it('should navigate to the correct URL when the link is clicked', () => {
+  it('should navigate to the correct URL when the card is clicked', () => {
     const mockPokemon: Pokemon = {
       id: 1,
       name: 'Bulbasaur',
@@ -76,9 +76,9 @@ describe('PokemonCardComponent', () => {
     component.pokemon = mockPokemon;
     fixture.detectChanges();
 
-    const anchorElement = fixture.nativeElement.querySelector('a');
-    anchorElement.click();
+    const cardElement = fixture.nativeElement.querySelector('.pokemon-card');
+    cardElement.click();
 
-    expect(router.navigate).toHaveBeenCalledWith(['/pokemon', 1]);
+    expect(router.navigate).toHaveBeenCalledWith(['/pokemon/detail/', 1]);
   });
 });

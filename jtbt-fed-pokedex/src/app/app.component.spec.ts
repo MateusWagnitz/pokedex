@@ -1,48 +1,24 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { TestBed } from '@angular/core/testing';
 import { AppComponent } from './app.component';
-import { PokemonService } from './services/pokemon.service';
-import { of } from 'rxjs';
-import { provideRouter } from '@angular/router';
-import { FormsModule } from '@angular/forms';
-import { PokemonCardComponent } from './pokemon-card/pokemon-card.component';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('AppComponent', () => {
-  let component: AppComponent;
-  let fixture: ComponentFixture<AppComponent>;
-  let pokemonServiceMock: any;
-
   beforeEach(async () => {
-    pokemonServiceMock = {
-      loadInitialPokemons: jest.fn().mockReturnValue(of([])),
-      loadAdditionalPokemons: jest.fn().mockReturnValue(of([])),
-      getPokemon: jest.fn(),
-      getPokemonDetail: jest.fn(),
-    };
-
     await TestBed.configureTestingModule({
-      imports: [
-        FormsModule,
-        AppComponent,
-        PokemonCardComponent
-      ],
-      providers: [
-        provideRouter([]),
-        { provide: PokemonService, useValue: pokemonServiceMock }
-      ]
+      imports: [AppComponent, RouterTestingModule],
     }).compileComponents();
   });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
   it('should create the app', () => {
-    expect(component).toBeTruthy();
+    const fixture = TestBed.createComponent(AppComponent);
+    const app = fixture.componentInstance;
+    expect(app).toBeTruthy();
   });
 
-  it('should load initial pokemons on init', () => {
-    expect(pokemonServiceMock.loadInitialPokemons).toHaveBeenCalled();
+  it('should render router-outlet', () => {
+    const fixture = TestBed.createComponent(AppComponent);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    expect(compiled.querySelector('router-outlet')).not.toBeNull();
   });
 });

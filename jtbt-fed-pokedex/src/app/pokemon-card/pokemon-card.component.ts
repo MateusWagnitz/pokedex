@@ -16,6 +16,6 @@ export class PokemonCardComponent {
   constructor(private router: Router) {}
 
   navigateToDetail() {
-    this.router.navigate(['/pokemon', this.pokemon.id]);
+    this.router.navigate(['/pokemon/detail/', this.pokemon.id]);
   }
 }
