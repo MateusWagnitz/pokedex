@@ -1,0 +1,5 @@
+<div *ngIf="pokemonDetail">
+  <h1>{{ pokemonDetail.name }}</h1>
+  <p><strong>Types:</strong> {{ pokemonDetail.types.join(', ') }}</p>
+  <p><strong>Moves:</strong> {{ pokemonDetail.moves.join(', ') }}</p>
+</div>
