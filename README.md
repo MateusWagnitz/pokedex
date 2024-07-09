@@ -36,3 +36,7 @@ Both the API and app will rebuild as changes are made to them.
 ```shell
 npm run test
 ```
+
+## Archetecture
+
+![Architecture](./assets/Arch.png)
